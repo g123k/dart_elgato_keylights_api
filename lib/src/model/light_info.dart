@@ -1,3 +1,5 @@
+/// Information about an Elgato Keylight
+/// The display name and features may be empty
 class KeyLightInfo {
   final String productName;
   final int hardwareBoardType;

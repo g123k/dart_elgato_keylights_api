@@ -1,5 +1,10 @@
+/// Current configuration of an Elgato Key Light.
+/// When updating the light, please use the [updateWith] method.
 class KeyLightOptions {
+  /// The number of lights (for key lights, there is only one light)
   final int number;
+
+  /// For each light, weather it's on, its brightness and its temperature
   final Iterable<KeyLightOption> lights;
 
   KeyLightOptions._({
@@ -19,6 +24,7 @@ class KeyLightOptions {
         'lights': lights.map((e) => e._toJSON()).toList(growable: false),
       };
 
+  /// When updating the light, please use this method.
   KeyLightOptions updateWith({
     bool? on,
     int? brightness,
@@ -50,7 +56,8 @@ class KeyLightOption {
     required this.isOn,
     required this.brightness,
     required this.temperature,
-  });
+  })  : assert(brightness >= 0),
+        assert(temperature >= 0);
 
   KeyLightOption._fromJSON(dynamic json)
       : assert(json is Map),

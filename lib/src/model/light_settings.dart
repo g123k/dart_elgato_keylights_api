@@ -1,3 +1,4 @@
+/// Data provided for a given Elgato Key Light.
 class KeyLightSettings {
   final int powerOnBehavior;
   final int powerOnBrightness;
